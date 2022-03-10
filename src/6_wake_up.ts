@@ -1,5 +1,6 @@
 import { endAdventure, haveAdventures } from '..';
 import { askQuestion, clear, print } from '../console';
+import { goToGroceryShopping } from './7_go_to_grocery_shopping'
 
 // This is a very unusual type setup. It's pobably not a great idea in the real world to nest so many properties
 // with the exact same name. But in Wonderland, this sort of thing is normal, so we've just got to find a way through it...
@@ -28,16 +29,10 @@ export function wakeUp(): void {
 	if (awoken.wake?.wake?.wake?.canWake === 'Yes') {
 		print('You have awoken in your bed 🛏 What a lovely dream.');
 		print('Although...❓❓❓');
-		print('What are these tarts doing here?! 🥧🥧🥧🥧🥧🥧 🤔');
+		print('Anyway, I am so hungry... Its time for Breakfast.. 🍲 ');
 
-		print(
-			'✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳'
-		);
+		return askQuestion('Press ENTER to continue ', goToGroceryShopping);
 
-		return askQuestion(
-			'Press ENTER to re-enter Wonderland! ',
-			haveAdventures
-		);
 	} else {
 		print('You are unable to wake up! 😱');
 		return endAdventure();
